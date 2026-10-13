@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campforge</title>
+<meta name="description" content="Campforge builds free, open-source software for everyday working people.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg:       #EEF1F8;
+  --surface:  #FFFFFF;
+  --border:   #D8DCE8;
+  --text:     #1A1E30;
+  --text2:    #52597A;
+  --ink:      #2B303B;
+  --anvil:    #3A404D;
+  --accent:   #3D6FE5;
+  --accent-soft: #E3EBFC;
+  --radius:   12px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:      #111420;
+    --surface: #1A1E2E;
+    --border:  #2C3050;
+    --text:    #D8DCF0;
+    --text2:   #7880A8;
+    --ink:     #C9D0E6;
+    --anvil:   #5A6273;
+    --accent:  #5B8CFF;
+    --accent-soft: #1E2847;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:      #111420;
+  --surface: #1A1E2E;
+  --border:  #2C3050;
+  --text:    #D8DCF0;
+  --text2:   #7880A8;
+  --ink:     #C9D0E6;
+  --anvil:   #5A6273;
+  --accent:  #5B8CFF;
+  --accent-soft: #1E2847;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+/* header */
+header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 20px; padding-bottom: 20px;
+}
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); }
+.brand:hover { text-decoration: none; }
+.brand svg { width: 36px; height: 36px; }
+.wordmark { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+.wordmark span { color: var(--accent); }
+.gh { display: inline-flex; align-items: center; gap: 6px; color: var(--text2); font-size: 0.95rem; }
+.gh svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* hero */
+.hero { text-align: center; padding: 56px 0 40px; }
+.mark { width: 128px; height: 128px; margin: 0 auto 28px; display: block; }
+.logo-roof, .logo-flame { color: var(--accent); }
+.logo-anvil { color: var(--anvil); }
+.name {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.name span { color: var(--accent); }
+.soft {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin: 10px 0 0;
+  color: var(--text2);
+  font-size: 0.85rem;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+}
+.soft::before, .soft::after { content: ""; width: 48px; height: 2px; background: var(--accent); }
+.tagline {
+  max-width: 560px;
+  margin: 28px auto 0;
+  font-size: 1.2rem;
+  color: var(--text2);
+}
+
+/* status */
+.status {
+  display: flex; align-items: center; gap: 20px;
+  max-width: 640px;
+  margin: 8px auto 48px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.status h2 { margin: 0 0 4px; font-size: 1.05rem; }
+.status p { margin: 0; color: var(--text2); }
+
+/* signs */
+.sign { flex: none; width: 56px; height: 56px; color: var(--ink); }
+.sign .dot { fill: var(--accent); stroke: none; }
+.sign .hl { stroke: var(--accent); }
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 16px;
+  margin: 0 0 56px;
+  padding: 0;
+  list-style: none;
+}
+.values li {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.values h3 { margin: 14px 0 4px; font-size: 1.05rem; }
+.values p { margin: 0; color: var(--text2); font-size: 0.95rem; }
+.values .caption {
+  display: block; margin-top: 2px;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text2); opacity: 0.8;
+}
+
+footer { margin-top: auto; border-top: 1px solid var(--border); }
+footer .wrap {
+  display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+  padding-top: 20px; padding-bottom: 24px;
+  color: var(--text2); font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="8 8 48 50">
+      <path class="logo-roof" d="M15 37V24L32 10l17 14v13" fill="none" stroke="currentColor" stroke-width="4.5"/>
+      <path class="logo-flame" d="M32 16c1.5 4.5 7 7 7 13.5 0 5.3-3.2 9.5-7 9.5s-7-3.6-7-8.2c0-3 1.4-5.2 3.2-7 0 2.3.8 4 2.2 4.8-.6-5 .2-9.4 1.6-12.6zM32 37.6c1.8 0 3-1.5 3-3.3 0-1.9-1.5-3.3-3-5.3-1.5 2-3 3.4-3 5.3 0 1.8 1.2 3.3 3 3.3z" fill-rule="evenodd" fill="currentColor"/>
+      <path class="logo-anvil" d="M9 40h44v5h-6c-4 .5-6 2.5-6 5l4 3.5V57H19v-3.5l4-3.5c0-3-3-5-8-5.5C12 44.5 10 42.5 9 40z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Campforge home">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <span class="wordmark">Camp<span>forge</span></span>
+    </a>
+    <a class="gh" href="https://github.com/Campforge">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
+    <h1 class="name">Camp<span>forge</span></h1>
+    <p class="soft">SOFT</p>
+    <p class="tagline">Free, open-source software for everyday working people —
+      simple tools that do the job and stay yours.</p>
+  </section>
+
+  <section class="status" aria-label="Status">
+    <!-- hobo sign: camp here -->
+    <svg class="sign" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true">
+      <path d="M8 42 27 7M40 42 21 7"/>
+      <circle class="dot" cx="24" cy="33" r="5"/>
+    </svg>
+    <div>
+      <h2>Camp is being set up</h2>
+      <p>Our first projects are on the way. They will be listed here as soon as they are ready —
+        meanwhile, follow along on <a href="https://github.com/Campforge">GitHub</a>.</p>
+    </div>
+  </section>
+
+  <ul class="values">
+    <li>
+      <!-- hobo sign: good place to stay -->
+      <svg class="sign" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 42V20L24 6l17 14v22"/>
+        <circle class="dot" cx="24" cy="28" r="5"/>
+      </svg>
+      <span class="caption">Good place to stay</span>
+      <h3>Open source</h3>
+      <p>Every line of code is public. Read it, change it, keep it — no lock-in.</p>
+    </li>
+    <li>
+      <!-- hobo sign: go this way -->
+      <svg class="sign" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="hl" d="M6 24h34M28 11l13 13-13 13"/>
+      </svg>
+      <span class="caption">Go this way</span>
+      <h3>Simple to use</h3>
+      <p>Tools that start fast, stay out of your way and do one job well.</p>
+    </li>
+    <li>
+      <!-- hobo sign: you can help -->
+      <svg class="sign" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true">
+        <rect x="16" y="7" width="25" height="22" rx="3"/>
+        <rect class="hl" x="7" y="19" width="25" height="22" rx="3"/>
+      </svg>
+      <span class="caption">You can help</span>
+      <h3>Built in the open</h3>
+      <p>Ideas, bug reports and pull requests are welcome from anyone.</p>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Campforge</span>
+    <a href="https://github.com/Campforge">github.com/Campforge</a>
+  </div>
+</footer>
+
+</body>
+</html>
