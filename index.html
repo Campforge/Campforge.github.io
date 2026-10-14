@@ -106,18 +106,39 @@ header .wrap {
   color: var(--text2);
 }
 
-/* status */
-.status {
-  display: flex; align-items: center; gap: 20px;
-  max-width: 640px;
-  margin: 8px auto 48px;
-  padding: 20px 24px;
+/* projects */
+.projects { max-width: 720px; margin: 8px auto 48px; }
+.section-title {
+  margin: 0 0 12px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text2);
+}
+.project {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 22px 24px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
-.status h2 { margin: 0 0 4px; font-size: 1.05rem; }
-.status p { margin: 0; color: var(--text2); }
+.project-icon { flex: none; width: 64px; height: 64px; }
+.project-body { min-width: 0; }
+.project h3 { margin: 0 0 4px; font-size: 1.25rem; }
+.project p { margin: 0; color: var(--text2); }
+.project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px !important; }
+.button {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem; font-weight: 600;
+}
+.button:hover { text-decoration: none; border-color: var(--accent); }
+.button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.button.primary:hover { filter: brightness(1.08); }
+@media (max-width: 520px) {
+  .project { flex-direction: column; }
+}
 
 /* signs */
 .sign { flex: none; width: 56px; height: 56px; color: var(--ink); }
@@ -188,17 +209,20 @@ footer .wrap {
       simple tools that do the job and stay yours.</p>
   </section>
 
-  <section class="status" aria-label="Status">
-    <!-- hobo sign: camp here -->
-    <svg class="sign" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" aria-hidden="true">
-      <path d="M8 42 27 7M40 42 21 7"/>
-      <circle class="dot" cx="24" cy="33" r="5"/>
-    </svg>
-    <div>
-      <h2>Camp is being set up</h2>
-      <p>Our first projects are on the way. They will be listed here as soon as they are ready —
-        meanwhile, follow along on <a href="https://github.com/Campforge">GitHub</a>.</p>
-    </div>
+  <section class="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="section-title">Projects</h2>
+    <article class="project">
+      <img class="project-icon" src="assets/runpad.svg" alt="" width="64" height="64">
+      <div class="project-body">
+        <h3>RunPad</h3>
+        <p>A native, fast, cross-platform C# scratchpad for .NET — an open-source alternative to
+          LINQPad, RoslynPad and NetPad. Write C#, run it in a keystroke and explore the results.</p>
+        <p class="project-links">
+          <a class="button primary" href="https://campforge.github.io/run-pad-docs/">Documentation</a>
+          <a class="button" href="https://github.com/Campforge/run-pad">Source on GitHub</a>
+        </p>
+      </div>
+    </article>
   </section>
 
   <ul class="values">
